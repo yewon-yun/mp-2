@@ -1,4 +1,12 @@
+import DogBreeds from "./components/DogBreeds.tsx";
 import {useEffect, useState} from 'react'
+import styled from "styled-components";
+
+const ParentDiv=styled.div`
+    width: 80vw;
+    margin: auto;
+    border: 5px black solid;
+`;
 
 export default function App() { //function returning markup is a component
 
@@ -6,7 +14,7 @@ export default function App() { //function returning markup is a component
 
   useEffect(()=>{
     async function fetchData(){
-      const rawData = await fetch("https://rickandmortyapi.com/api/character")
+      const rawData = await fetch("https://dogapi.dog/api/v2/breeds")
       const actualData = await rawData.json();
       setData(actualData)
     }
@@ -16,8 +24,8 @@ export default function App() { //function returning markup is a component
   },[data.length]);
 
   return (
-    <>
+    <ParentDiv>
 
-    </>
+    </ParentDiv>
   )
 }
