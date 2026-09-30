@@ -6,7 +6,7 @@ const AllCharsDiv=styled.div`
     display: flex;
     flex-flow: row wrap;    
     justify-content: space-evenly;
-    background-color: bisque;
+    background-color: lightsteelblue;
 `;
 
 const SingleCharDiv=styled.div`
@@ -16,10 +16,11 @@ const SingleCharDiv=styled.div`
     max-width: 30%;
     padding: 2%;
     margin: 1%;
-    background-color: black;
-    color: white;
-    border: 3px darkred solid;
-    font: italic small-caps bold calc(2px + 1vw) Papyrus, fantasy;
+    background-color: white;
+    color: black;
+    border: 3px black solid;
+    border-radius: 10px;
+    font: small-caps bold calc(2px + 1vw) "Andale Mono", fantasy;
     text-align: center;
 `;
 
@@ -31,7 +32,7 @@ export default function DogBreeds(props : { data:Dog[] } ){
                     <SingleCharDiv key={char.id}>
                         <h1>{char.attributes.name}</h1>
                         <p>{char.attributes.description}</p>
-                        <img src={char.attributes.images[0].url} alt={`image of ${char.attributes.name}`} />
+                        <img src={char.attributes.images[1].url} alt={`image of ${char.attributes.name}`} />
                     </SingleCharDiv>
                 )
             }

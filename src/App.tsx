@@ -15,9 +15,9 @@ export default function App() { //function returning markup is a component
 
   useEffect(()=>{
     async function fetchData(){
-      const rawData = await fetch("https://dogapi.dog/api/v2/breeds")
-      const {actualData} = await rawData.json();
-      setData(actualData)
+      const rawData = await fetch("https://dogapi.dog/api/v2/breeds");
+      const {data}: {data: Dog[]} = await rawData.json();
+      setData(data);
     }
     fetchData()
         .then(()=>console.log("yay"))
