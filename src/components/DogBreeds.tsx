@@ -29,9 +29,9 @@ export default function DogBreeds(props : { data:Dog[] } ){
             {
                 props.data.map((char: Dog) =>
                     <SingleCharDiv key={char.id}>
-                        <h1>{char.attribute.name}</h1>
-                        <p>{char.attribute.description}</p>
-                        <img src={char.images.url} alt={`image of ${char.attribute.name}`} />
+                        <h1>{char.attributes.name}</h1>
+                        <p>{char.attributes.description}</p>
+                        <img src={char.attributes.images[0].url} alt={`image of ${char.attributes.name}`} />
                     </SingleCharDiv>
                 )
             }

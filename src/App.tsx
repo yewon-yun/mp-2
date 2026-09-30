@@ -1,6 +1,7 @@
 import DogBreeds from "./components/DogBreeds.tsx";
 import {useEffect, useState} from 'react'
 import styled from "styled-components";
+import type {Dog} from "./interfaces/Dogs.ts";
 
 const ParentDiv=styled.div`
     width: 80vw;
@@ -10,12 +11,12 @@ const ParentDiv=styled.div`
 
 export default function App() { //function returning markup is a component
 
-  const[data, setData]=useState([]); //first variable is x, then second variable needs to be setX
+  const[data, setData]=useState<Dog[]>([]); //first variable is x, then second variable needs to be setX
 
   useEffect(()=>{
     async function fetchData(){
       const rawData = await fetch("https://dogapi.dog/api/v2/breeds")
-      const actualData = await rawData.json();
+      const {actualData} = await rawData.json();
       setData(actualData)
     }
     fetchData()
