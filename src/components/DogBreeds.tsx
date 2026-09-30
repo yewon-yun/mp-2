@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Dogs} from "../interfaces/Dogs.ts";
+import type {Dog} from "../interfaces/Dogs.ts";
 
 
 const AllCharsDiv=styled.div`
@@ -9,25 +9,31 @@ const AllCharsDiv=styled.div`
     background-color: bisque;
 `;
 
-const SingleCharDiv=styled.div<{status: string}>`
+const SingleCharDiv=styled.div`
     display: flex;
     flex-direction: column;   
     justify-content: center;
     max-width: 30%;
     padding: 2%;
     margin: 1%;
-    background-color: ${(props)=>(props.status === "Alive" ? 'darkorange' : 'black')};
-    color: ${(props) => (props.status !== "Alive" ? 'white' : 'black')};
+    background-color: black;
+    color: white;
     border: 3px darkred solid;
     font: italic small-caps bold calc(2px + 1vw) Papyrus, fantasy;
     text-align: center;
 `;
 
-export default function DogBreeds(props : { data:Dogs[] } ){
+export default function DogBreeds(props : { data:Dog[] } ){
     return (
         <AllCharsDiv >
             {
-
+                props.data.map((char: Dog) =>
+                    <SingleCharDiv key={char.id}>
+                        <h1>{char.attribute.name}</h1>
+                        <p>{char.attribute.description}</p>
+                        <img src={char.images.url} alt={`image of ${char.attribute.name}`} />
+                    </SingleCharDiv>
+                )
             }
         </AllCharsDiv>
     );

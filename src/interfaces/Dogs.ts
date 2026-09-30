@@ -1,7 +1,10 @@
-export interface Dogs{
+export interface Dog{
     id: number;
-    name: string;
-    image: string;
-    species: string;
-    status: string;
+    attribute: {
+        name: string;
+        description: string;
+    }
+    images: {
+        url: string;
+    }
 }

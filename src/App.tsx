@@ -25,7 +25,7 @@ export default function App() { //function returning markup is a component
 
   return (
     <ParentDiv>
-
+      <DogBreeds data={data}/>
     </ParentDiv>
   )
 }
